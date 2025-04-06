@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        /* Sidebar Styling */
+        .sidebar {
+            width: 200px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar h3 {
+            color: #ecdbba;
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #ecf0f1;
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #16a085;
+            color: white;
+        }
+        .logout {
+            margin-top: 50px;
+        }
+        /* Main Content Styling */
+        .main-content {
+            margin-left: 220px;
+            width: calc(100% - 220px);
+            padding: 20px;
+        }
+        .profile-card {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        .profile-card img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+        .profile-card h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .profile-details p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #34495e;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Navigation</h3>
+        <a href="#" class="active">Home</a>
+        <a href="activitylog.html">Activity Log & Calorie Tracker</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="forum.html">Community Forum & Health Tips</a>
+        <a href="Clifford_UEB1109823.html" class="logout">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="profile-card">
+            <img src="https://via.placeholder.com/120" alt="Profile Picture">
+            <h2>User Profile</h2>
+            <div class="profile-details">
+                <p><strong>Username:</strong> [Your Username]</p>
+                <p><strong>Age:</strong> [Your Age]</p>
+                <p><strong>Blood Group:</strong> [Your Blood Group]</p>
+                <p><strong>Height:</strong> [Your Height]</p>
+                <p><strong>Weight:</strong> [Your Weight]</p>
+                <p><strong>Contact/Email:</strong> [Your Email]</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

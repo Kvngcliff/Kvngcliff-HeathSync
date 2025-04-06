@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Physical Activity Log</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .sidebar {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #eef5e9;
+            border-radius: 10px;
+        }
+
+        .sidebar div {
+            margin-bottom: 15px;
+        }
+
+        .sidebar div label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .sidebar div input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #4CAF50;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #f9fcf4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weekly Physical Activity Log</h1>
+
+        <div class="sidebar">
+            <div>
+                <label for="steps-taken">Steps Taken</label>
+                <input type="text" id="steps-taken">
+            </div>
+            <div>
+                <label for="calories-consumed">Calories Consumed</label>
+                <input type="text" id="calories-consumed">
+            </div>
+            <div>
+                <label for="workout-type">Workout Type</label>
+                <input type="text" id="workout-type">
+            </div>
+            <div>
+                <label for="workout-duration">Workout Duration</label>
+                <input type="text" id="workout-duration">
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Days</th>
+                    <th>Steps Taken</th>
+                    <th>Calories Consumed</th>
+                    <th>Workout Type</th>
+                    <th>Workout Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Thursday</td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Friday</td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Saturday</td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Sunday</td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Total</td><td></td><td></td><td></td><td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const formInputs = document.querySelectorAll('.sidebar input');
+            const tableCells = document.querySelectorAll('tbody td:not(:first-child)');
+            
+            // Store daily data
+            let dailyData = {};
+            let currentDay = '';
+            
+            // Form submission
+            document.querySelector('.sidebar').addEventListener('change', function() {
+                const data = {
+                    steps: document.getElementById('steps-taken').value,
+                    calories: document.getElementById('calories-consumed').value,
+                    workoutType: document.getElementById('workout-type').value,
+                    duration: document.getElementById('workout-duration').value
+                };
+                
+                // In a real app, you would save this to a database
+                if (currentDay) {
+                    dailyData[currentDay] = data;
+                    updateTable();
+                }
+            });
+            
+            // Table cell click handler
+            tableCells.forEach(cell => {
+                cell.addEventListener('click', function() {
+                    currentDay = this.parentNode.firstElementChild.textContent;
+                    document.querySelector('.sidebar').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Update table with data
+            function updateTable() {
+                for (const [day, data] of Object.entries(dailyData)) {
+                    const row = Array.from(document.querySelectorAll('tbody tr')).find(
+                        row => row.cells[0].textContent === day
+                    );
+                    
+                    if (row) {
+                        row.cells[1].textContent = data.steps || '';
+                        row.cells[2].textContent = data.calories || '';
+                        row.cells[3].textContent = data.workoutType || '';
+                        row.cells[4].textContent = data.duration || '';
+                    }
+                }
+                
+                calculateTotals();
+            }
+            
+            // Calculate weekly totals
+            function calculateTotals() {
+                const totals = {
+                    steps: 0,
+                    calories: 0,
+                    duration: 0
+                };
+                
+                for (const data of Object.values(dailyData)) {
+                    totals.steps += parseInt(data.steps) || 0;
+                    totals.calories += parseInt(data.calories) || 0;
+                    totals.duration += parseInt(data.duration) || 0;
+                }
+                
+                const totalRow = document.querySelector('tbody tr:last-child');
+                totalRow.cells[1].textContent = totals.steps;
+                totalRow.cells[2].textContent = totals.calories;
+                totalRow.cells[4].textContent = totals.duration + ' mins';
+            }
+        });
+    </script>
+</body>
+</html>

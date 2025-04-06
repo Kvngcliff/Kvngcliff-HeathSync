@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Page</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87CEEB; /* Light blue background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        /* Section Styles */
+        .section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            color: #333333;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* Activity Chart Styles */
+        .activity-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 200px;
+            background-color: #f7f9fc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .bar {
+            width: 30px;
+            background-color: #00BFFF;
+            border-radius: 4px;
+        }
+
+        .bar:nth-child(1) { height: 20%; }
+        .bar:nth-child(2) { height: 80%; }
+        .bar:nth-child(3) { height: 50%; }
+        .bar:nth-child(4) { height: 50%; }
+        .bar:nth-child(5) { height: 50%; }
+        .bar:nth-child(6) { height: 80%; }
+        .bar:nth-child(7) { height: 60%; }
+
+        /* Health and Water Balance Styles */
+        .health-water {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .health-item {
+            text-align: center;
+        }
+
+        .circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .general-health {
+            background: conic-gradient(#FF6F61 0% 78%, #e6e6e6 78% 100%);
+        }
+
+        .water-balance {
+            background: conic-gradient(#4FC3F7 0% 85%, #e6e6e6 85% 100%);
+        }
+
+        /* Tips Section */
+        .tips {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            background-color: #f7f9fc;
+            border-radius: 8px;
+        }
+
+        .tips h2 {
+            font-size: 1.5rem;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Page Header -->
+        <h1>Dashboard Page</h1>
+
+        <!-- Activity Section -->
+        <div class="section">
+            <h2>Your Activity</h2>
+            <div class="activity-chart">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+
+        <!-- Health and Water Balance Section -->
+        <div class="section health-water">
+            <div class="health-item">
+                <div class="circle general-health">78%</div>
+                <p>General Health</p>
+            </div>
+            <div class="health-item">
+                <div class="circle water-balance">85%</div>
+                <p>Water Balance</p>
+            </div>
+        </div>
+
+        <!-- Personalized Tips Section -->
+        <div class="section tips">
+            <h2>Personalized Tips</h2>
+        </div>
+    </div>
+</body>
+</html>

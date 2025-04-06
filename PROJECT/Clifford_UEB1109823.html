@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HealthSync</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Kvngcliff_</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To Search">
+                <a href="#"> <button class="btn">Search</button></a>
+            </div>
+
+        </div> 
+        <div class="content">
+            <h1>Health Tracker & <br><span>HealthSync</span> <br>Community</h1>
+            <p class="par">Welcome!<br>Take Control of Your Health with HealthSync 
+                <br> Track your activities, monitor your progress, and achieve your fitness goals.</p>
+
+                <button class="cn"><a href="JoinusOrSignup.html">JOIN US</a></button>
+
+                <div class="form">
+                    <h2>Login Here</h2>
+                    <input type="email" name="email" placeholder="Enter Email Here">
+                    <input type="password" name="" placeholder="Enter Password Here">
+                    <button class="btnn"><a href="homepage.html">Login</a></button>
+
+                    <p class="link">Don't have an account<br>
+                    <a href="JoinusOrSignup.html">Sign up </a> here</a></p>
+                    <p class="liw">Log in with</p>
+
+                    <div class="icons">
+                        <a href="facebook.html"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="instagram.html"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="twitter.html"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="gmail.html"><ion-icon name="logo-google"></ion-icon></a>
+
+                        
+                    </div>
+
+                </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js" ></script>
+
+    <script>
+        // Form validation for login
+        document.querySelector('.form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.querySelector('input[type="email"]').value;
+            const password = document.querySelector('input[type="password"]').value;
+            
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Simulate successful login
+            window.location.href = 'homepage.html';
+        });
+    
+        // Search functionality
+        document.querySelector('.search button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.srch').value;
+            if (searchTerm) {
+                alert('Searching for: ' + searchTerm);
+                // In a real app, you would redirect to search results or filter content
+            }
+        })
+    </script>
+</body>
+</html>
